@@ -17,10 +17,6 @@ You can make usage of OpenWeatherMaps API (https://openweathermap.org) to fetch 
 
 As this service will be a worldwide success,it must be prepared to be fault tolerant, responsive and resilient.
 
-Use whatever language, tools and frameworks you feel comfortable to.
+Use whatever language, tools and frameworks you feel comfortable to, and briefly elaborate on your solution, architecture details, choice of patterns and frameworks.
 
-Briefly elaborate on your solution, architecture details, choice of patterns and frameworks.
-
-Also, make it easy to deploy/run you service locally (consider using some container/vm solution for this).
-
-Fork this repository and submit your code.
+Also, make it easy to deploy/run your service(s) locally (consider using some container/vm solution for this). Once done, share your code with us.

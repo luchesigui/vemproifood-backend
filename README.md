@@ -15,7 +15,7 @@ You can make usage of OpenWeatherMaps API (https://openweathermap.org) to fetch 
 
 ## Non functional requirements
 
-As this service will be a worldwide success,it must be prepared to be fault tolerant, responsive and resilient.
+As this service will be a worldwide success, it must be prepared to be fault tolerant, responsive and resilient.
 
 Use whatever language, tools and frameworks you feel comfortable to, and briefly elaborate on your solution, architecture details, choice of patterns and frameworks.
 

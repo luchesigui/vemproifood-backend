@@ -1,4 +1,4 @@
-# Vem pro iFood! - Backend Challenge
+# #VemProiFood! - Backend Challenge
 
 Create a micro-service able to accept RESTful requests receiving as parameter
 either city name or lat long coordinates and returns a playlist (only track
@@ -16,6 +16,9 @@ names is fine) suggestion according to the current temperature.
 You can make usage of OpenWeatherMaps API (https://openweathermap.org) to fetch
 temperature data and Spotify (https://developer.spotify.com) to suggest the
 tracks as part of the playlist.
+
+(SpotifyAPI)[https://developer.spotify.com/documentation/web-api/quick-start/]
+(OpenWwather)[https://home.openweathermap.org/users/sign_up]
 
 ## Non functional requirements
 

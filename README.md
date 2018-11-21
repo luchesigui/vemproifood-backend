@@ -17,8 +17,8 @@ You can make usage of OpenWeatherMaps API (https://openweathermap.org) to fetch
 temperature data and Spotify (https://developer.spotify.com) to suggest the
 tracks as part of the playlist.
 
-[Spotify API](https://developer.spotify.com/documentation/web-api/quick-start/)
-[OpenWeatherMaps API](https://home.openweathermap.org/users/sign_up)
+- [Spotify API](https://developer.spotify.com/documentation/web-api/quick-start/)
+- [OpenWeatherMaps API](https://home.openweathermap.org/users/sign_up)
 
 ## Non functional requirements
 

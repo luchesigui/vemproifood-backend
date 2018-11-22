@@ -19,6 +19,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+app.all('/*', function(req, res, next) {
+	res.header('Cache-Control', 'public, max-age=120');
+	next();
+});
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 

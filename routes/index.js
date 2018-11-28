@@ -1,30 +1,46 @@
-var express = require('express');
-var router = express.Router();
-let request = require("request");
-let apikey = "b77e07f479efe92156376a8b07640ced";
+const express = require('express');
+const router = express.Router();
 
+const {
+  openWeatherRootUrl,
+  openWeatherApiKey,
+  fetchWeater,
+} = require('./weater/index');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+const {
+  tracksFromWeater,
+} = require('./spotify/index');
+
+router.get('/city', async (req, res) => {
+  const city = req.query.name
+
+  if( !city ){
+    res.status(500).send({
+      error: 'Favor informar o nome da cidade desejada'
+    })
+  }
+
+  const openWeatherApiUrl = `${openWeatherRootUrl}?q=${city}&appid=${openWeatherApiKey}`
+  const temperatura = await fetchWeater( openWeatherApiUrl )
+  const tracks = await tracksFromWeater( temperatura )
+
+  res.send( tracks )
 });
 
-router.get('/tracks', function(req, res, next) {
+router.get('/coord', async (req, res) => {
+  const { lat, lon } = req.query
 
-  let lat = req.query.lat;
-  let lon = req.query.lon;
+  if( !lat || !lon ){
+    res.status(500).send({
+      error: 'Favor informar latitude e longitude'
+    })
+  }
 
-  console.log(lat, lon);
-  let url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apikey}`
+  const openWeatherApiUrl = `${openWeatherRootUrl}?lat=${lat}&lon=${lon}&appid=${openWeatherApiKey}`
+  const temperatura = await fetchWeater( openWeatherApiUrl )
+  const tracks = await tracksFromWeater( temperatura )
 
-  request(url, function(err, response, body){
-    if (err){
-      console.log(err);
-    }else {
-      res.send(body)
-    }
-  });
-
+  res.send( tracks )
 });
 
 module.exports = router;

@@ -1,3 +1,7 @@
+const fetch = require('node-fetch')
+
+const { spotifyAuthenticate } = require('./auth')
+
 const playlists = {
   'party': '37i9dQZF1DX8mBRYewE6or',
   'pop': '37i9dQZF1DWVLcZxJO5zyf',
@@ -25,7 +29,29 @@ const playlistsTypesFromWeater = (weater) => {
   return false
 }
 
+const tracksFromPlaylistType = async (playlistsType) => {
+  const playlistId = playlists[playlistsType]
+
+  if( !playlistId ) {
+    return {
+      error: 'Tipo de playlist invalido'
+    }
+  }
+
+  const limit = 20
+  const authenticatedHeader = await spotifyAuthenticate()
+  const tracks = fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks?limit=${limit}`, authenticatedHeader)
+    .then( res => res.json () )
+    .then( res => res.items )
+    .then( trackObjects => trackObjects
+        .map(trackObject => trackObject.track.name)
+    )
+
+  return tracks
+}
+
 module.exports = {
   playlists,
   playlistsTypesFromWeater,
+  tracksFromPlaylistType,
 }

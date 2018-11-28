@@ -50,8 +50,14 @@ const tracksFromPlaylistType = async (playlistsType) => {
   return tracks
 }
 
+const tracksFromWeater = async (weater) => {
+  const playlistsType = playlistsTypesFromWeater( weater )
+  return playlists ? await tracksFromPlaylistType( playlistsType ) : false
+}
+
 module.exports = {
   playlists,
   playlistsTypesFromWeater,
   tracksFromPlaylistType,
+  tracksFromWeater,
 }

@@ -44,7 +44,10 @@ const tracksFromPlaylistType = async (playlistsType) => {
     .then( res => res.json () )
     .then( res => res.items )
     .then( trackObjects => trackObjects
-        .map(trackObject => trackObject.track.name)
+        .map(trackObject => ({
+          name: trackObject.track.name,
+          url: trackObject.track.external_urls.spotify,
+        }))
     )
 
   return tracks

@@ -34,13 +34,14 @@ dependencies {
     runtimeOnly("ch.qos.logback:logback-classic")
     implementation("io.micronaut:micronaut-validation")
 
+    implementation("org.valiktor:valiktor-core:0.12.0")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
     testImplementation("io.mockk:mockk:1.12.1")
 }
 
 
 application {
-    mainClass.set("br.com.diogomurano.ApplicationKt")
+    mainClass.set("br.com.diogomurano.challenge.ApplicationKt")
 }
 java {
     sourceCompatibility = JavaVersion.toVersion("11")

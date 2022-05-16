@@ -1,0 +1,17 @@
+version: '3'
+services:
+  web1:
+    build: .
+    ports:
+     - "3000:3000"
+  web2:
+    build: .
+    ports:
+     - "3001:3000"
+  varnish:
+    build: varnish/.
+    ports:
+     - "8080:80"
+    links:
+     - web1
+     - web2      
